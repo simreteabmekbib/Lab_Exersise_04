@@ -21,6 +21,9 @@ else if(result.res == 2){
 else if(result.res == 3){
     mul();
 }
+else if(result.res == 4){
+    div();
+}
 }
 function add(){
     let numberOfAdd = parseInt(prompt("How many number do you want to add?"));
@@ -49,5 +52,18 @@ function mul(){
     }
     console.log("result = " + result.mul);
 
+}
+function div(){
+    let firstNumber = parseInt(prompt("inter the first number"));
+    let secondNumber = parseInt(prompt("inter the second number"))
+    if (secondNumber != 0){
+    result.div = firstNumber / secondNumber;
+        
+    console.log("division = " + result.div);
+    }
+    else if (secondNumber == 0){
+        alert("denomnetor can not be 0");
+        div();
+    }
 }
 chooceNumber();
