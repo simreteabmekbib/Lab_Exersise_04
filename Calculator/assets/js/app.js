@@ -1,7 +1,7 @@
 let result={
     sum: 0,
     dif: 0,
-    mul: 0,
+    mul: 1,
     div: 0,
     res: 0,
     numberAdd: [],
@@ -18,7 +18,9 @@ if (result.res == 1){
 else if(result.res == 2){
     sub();
 }
-
+else if(result.res == 3){
+    mul();
+}
 }
 function add(){
     let numberOfAdd = parseInt(prompt("How many number do you want to add?"));
@@ -36,6 +38,16 @@ function sub(){
     result.dif = firstNumber - secondNumber;
         
     console.log("difference = " + result.dif);
+
+}
+function mul(){
+
+    let numberOfMul = parseInt(prompt("How many number do you want to multiply?"));
+    for (let i = 0; i < numberOfMul; i++) {
+        result.numberAdd[i] = parseInt(prompt((i + 1) + " number you want to multiply"));
+        result.mul = result.mul * result.numberAdd[i];
+    }
+    console.log("result = " + result.mul);
 
 }
 chooceNumber();
