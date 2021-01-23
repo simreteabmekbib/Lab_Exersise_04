@@ -10,8 +10,9 @@ let result={
 };
 
 //ask which operator the user want
-result.res=parseInt(window.prompt("Choose your operator \n For addition inter 1 \n For substraction inter 2 \n For multiplication inter 3 \n For division inter 4"))
-function chooceNumber(){
+
+result.res=parseInt(window.prompt("Choose your operator \n For addition inter 1 \n For substraction inter 2 \n For multiplication inter 3 \n For division inter 4"));
+(function (){
 if (result.res == 1){
     add();
 }
@@ -24,7 +25,7 @@ else if(result.res == 3){
 else if(result.res == 4){
     div();
 }
-}
+})();
 function add(){
     let numberOfAdd = parseInt(prompt("How many number do you want to add?"));
     for (let i = 0; i < numberOfAdd; i++) {
@@ -66,4 +67,4 @@ function div(){
         div();
     }
 }
-chooceNumber();
+
