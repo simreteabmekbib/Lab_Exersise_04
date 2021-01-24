@@ -1,3 +1,4 @@
+fn();
 // Declaring variables 
 // You can check this Variables are Available or not under the window object 
 var firstName;
