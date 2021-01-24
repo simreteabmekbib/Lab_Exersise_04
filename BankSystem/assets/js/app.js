@@ -18,10 +18,37 @@ function cond() {
             deposite();
         }
         else if (cho == 2) {
-             withdraw();
+            withdraw();
+        }
+        else if (cho == 3) {
+            Balance();
+        }
+        else if (cho == 4) {
+            Transfer();
+        }
+        else {
+            alert("You can input only numbers from 1 up to 4");
+            cond();
         }
     }
     else if (re == 2) {
+        cho = parseInt(prompt(choose));
+        if (cho == 1) {
+            deposite();
+        }
+        else if (cho == 2) {
+            withdraw();
+        }
+        else if (cho == 3) {
+            Balance();
+        }
+        else if (cho == 4) {
+            Transfer();
+        }
+        else {
+            alert("You can input only numbers from 1 up to 4");
+            cond();
+        }
     }
     else if (re == 3) {
 
@@ -40,7 +67,7 @@ function deposite() {
         console.log("Now your balance is " + account1.balance);
         cond();
     }
-    else if (re == 2 && cho == "1"){
+    else if (re == 2 && cho == "1") {
         console.log(account2.accountName);
         console.log("your account amount was " + account2.balance);
         var dep = parseInt(prompt("Inter amount of deposite"));
@@ -55,19 +82,91 @@ function withdraw() {
         console.log("your account amount was " + account1.balance);
         var dep = parseInt(prompt("Inter amount of withdraw"));
         account1.balance = account1.balance - dep;
-        console.log("Now your balance is " + account1.balance);
-        cond();
+        if (account1.balance - dep >= 50) {
+
+            console.log("Now your balance is " + account1.balance);
+            cond();
+        }
+        else if (account1.balance - dep < 50) {
+            alert("There must be 50 birr in your account \n you can withdraw up to " + (account1.balance - 50));
+            Transfer();
+        }
+        else {
+            alert("Please inter the correct input type");
+            Transfer();
+        }
     }
-    else if (re == 2 && cho =="2"){
+    else if (re == 2 && cho == "2") {
         console.log(account2.accountName);
         console.log("your account amount was " + account2.balance);
         var dep = parseInt(prompt("Inter amount of withdraw"));
-        account2.balance = account2.balance - dep;
+        if (account2.balance - dep >= 50) {
+            account2.balance = account2.balance - dep;
+            console.log("Now your balance is " + account2.balance);
+            cond();
+        }
+        else if (account2.balance - dep < 50) {
+            alert("There must be 50 birr in your account \n you can withdraw up to " + (account2.balance - 50));
+            Transfer();
+        }
+        else {
+            alert("Please inter the correct input type");
+            Transfer();
+        }
+    }
+}
+function Balance() {
+    if (re == 1 && cho == "3") {
+        console.log(account1.accountName);
+        console.log("Now your balance is " + account1.balance);
+        cond();
+    }
+    else if (re == 2 && cho == "3") {
+        console.log(account2.accountName);
         console.log("Now your balance is " + account2.balance);
         cond();
     }
 }
-
+function Transfer() {
+    if (re == 1 && cho == "4") {
+        console.log(account1.accountName);
+        console.log("your account amount was " + account1.balance);
+        var dep = parseInt(prompt("Inter amount of transfered birr"));
+        if (account1.balance - dep >= 50) {
+            account1.balance = account1.balance - dep;
+            account2.balance = account2.balance + dep
+            console.log("Now your balance is " + account1.balance);
+            cond();
+        }
+        else if (account1.balance - dep < 50) {
+            alert("There must be 50 birr in your account \n you can transfer up to " + (account1.balance - 50));
+            Transfer();
+        }
+        else {
+            alert("Please inter the correct input type");
+            Transfer();
+        }
+    }
+    else if (re == 2 && cho == "4") {
+        console.log(account2.accountName);
+        console.log("your account amount was " + account2.balance);
+        var dep = parseInt(prompt("Inter amount of transfered birr"));
+        if (account2.balance - dep >= 50) {
+            account2.balance = account2.balance - dep;
+            account1.balance = account1.balance + dep;
+            console.log("Now your balance is " + account2.balance);
+            cond();
+        }
+        else if (account2.balance - dep < 50) {
+            alert("There must be 50 birr in your account \n you can transfer up to " + (account2.balance - 50));
+            Transfer();
+        }
+        else {
+            alert("Please inter the correct input type");
+            Transfer();
+        }
+    }
+}
 (function () {
     cond();
 })();
