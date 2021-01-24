@@ -81,37 +81,44 @@ function withdraw() {
         console.log(account1.accountName);
         console.log("your account amount was " + account1.balance);
         var dep = parseInt(prompt("Inter amount of withdraw"));
-        account1.balance = account1.balance - dep;
-        if (account1.balance - dep >= 50) {
-
+        if (account1.balance - dep >= 50 && dep <= 2000) {
+            account1.balance = account1.balance - dep;
             console.log("Now your balance is " + account1.balance);
             cond();
         }
-        else if (account1.balance - dep < 50) {
+        else if (account1.balance - dep < 50 && dep <= 2000) {
             alert("There must be 50 birr in your account \n you can withdraw up to " + (account1.balance - 50));
-            Transfer();
+            withdraw();
+        }
+        else if (dep > 2000) {
+            alert("maximum withdraw amount is 2000");
+            withdraw();
         }
         else {
             alert("Please inter the correct input type");
-            Transfer();
+            withdraw();
         }
     }
     else if (re == 2 && cho == "2") {
         console.log(account2.accountName);
         console.log("your account amount was " + account2.balance);
         var dep = parseInt(prompt("Inter amount of withdraw"));
-        if (account2.balance - dep >= 50) {
+        if (account2.balance - dep >= 50 && dep <= 2000) {
             account2.balance = account2.balance - dep;
             console.log("Now your balance is " + account2.balance);
             cond();
         }
-        else if (account2.balance - dep < 50) {
+        else if (account2.balance - dep < 50 && dep <= 2000) {
             alert("There must be 50 birr in your account \n you can withdraw up to " + (account2.balance - 50));
-            Transfer();
+            withdraw();
+        }
+        else if (account2.balance - dep >= 50 && dep > 2000) {
+            alert("maximum withdraw amount is 2000");
+            withdraw();
         }
         else {
             alert("Please inter the correct input type");
-            Transfer();
+            withdraw();
         }
     }
 }
